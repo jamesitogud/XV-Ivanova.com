@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmar Asistencia - Mis XV Años de Ivanova</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="pagina">
+
+  <div class="contenido">
+
+    <a href="index.html" class="volver-link">← Volver a la invitación</a>
+
+    <!-- ================= CONFIRMAR ASISTENCIA (RSVP) ================= -->
+    <section class="confirmacion">
+      <h2 class="titulo-confirmacion">Confirma tu asistencia</h2>
+
+      <svg class="separador-corto" viewBox="0 0 200 20" fill="none">
+        <line x1="10" y1="10" x2="80" y2="10" stroke="#B8934A" stroke-width="1"/>
+        <path d="M100 6c-2-3-6-1-6 1 0 2 2.5 4 6 6 3.5-2 6-4 6-6 0-2-4-4-6-1z" fill="#B8934A"/>
+        <line x1="120" y1="10" x2="190" y2="10" stroke="#B8934A" stroke-width="1"/>
+      </svg>
+
+      <p class="confirmacion-texto">Será un honor contar contigo en este día tan especial.</p>
+
+      <svg class="separador-ramas" viewBox="0 0 260 24" fill="none">
+        <line x1="20" y1="12" x2="90" y2="12" stroke="#B8934A" stroke-width="1"/>
+        <path d="M60 12l-8-5M60 12l-8 5M70 12l-8-5M70 12l-8 5M80 12l-8-5M80 12l-8 5" stroke="#B8934A" stroke-width="1"/>
+        <path d="M130 8c-2-3-6-1-6 1 0 2 2.5 4 6 6 3.5-2 6-4 6-6 0-2-4-4-6-1z" fill="#B8934A"/>
+        <line x1="170" y1="12" x2="240" y2="12" stroke="#B8934A" stroke-width="1"/>
+        <path d="M180 12l8-5M180 12l8 5M190 12l8-5M190 12l8 5M200 12l8-5M200 12l8 5" stroke="#B8934A" stroke-width="1"/>
+      </svg>
+
+      <p class="confirmacion-nota">
+        <svg class="icono-corazon-inline" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.5-9.5-9C1 7.5 3 4 6.5 4c2 0 3.5 1.3 4 2.5C11 5.3 12.5 4 14.5 4 18 4 20 7.5 18.5 11 16 15.5 12 20 12 20z" stroke="#A81511" stroke-width="1.5"/></svg>
+        El color <strong>rojo</strong> es exclusivo para la quinceañera.<br>
+        Te agradeceremos elegir otros tonos para tu vestimenta.
+      </p>
+
+      <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+      <form id="form-rsvp" class="form-rsvp"
+            action="https://script.google.com/macros/s/AKfycbxMyR_gnrjwdvnjPOBDEZv0P3GqnLtfMTVxWcaMxwQQsgsMPy1KAylQs5FvqOgZbYoJ/exec"
+            method="POST"
+            target="hidden_iframe">
+        <label class="campo">
+          <span class="campo-titulo">
+            <svg class="icono-campo" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#A81511" stroke-width="1.5"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#A81511" stroke-width="1.5"/></svg>
+            Nombre o familia
+          </span>
+          <input type="text" name="nombre" placeholder="Escribe tu nombre" required>
+        </label>
+
+        <div class="campo">
+          <span class="campo-titulo">
+            <svg class="icono-campo" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#A81511" stroke-width="1.5"/><line x1="3" y1="10" x2="21" y2="10" stroke="#A81511" stroke-width="1.5"/><line x1="8" y1="3" x2="8" y2="7" stroke="#A81511" stroke-width="1.5"/><line x1="16" y1="3" x2="16" y2="7" stroke="#A81511" stroke-width="1.5"/></svg>
+            ¿Asistirás a mis XV años?
+          </span>
+          <div class="opciones-radio">
+            <label class="radio-opcion">
+              <input type="radio" name="asistencia" value="Sí, asistiré" required>
+              <span>Sí, asistiré</span>
+            </label>
+            <label class="radio-opcion">
+              <input type="radio" name="asistencia" value="No podré asistir" required>
+              <span>No podré asistir</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="campo" id="campo-modalidad">
+          <span class="campo-titulo">
+            <svg class="icono-campo" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="3" stroke="#A81511" stroke-width="1.5"/><circle cx="17" cy="9" r="2.5" stroke="#A81511" stroke-width="1.5"/><path d="M2 21c0-3.9 2.7-7 6-7s6 3.1 6 7" stroke="#A81511" stroke-width="1.5"/><path d="M15 15c2.8 0 5 2.5 5 6" stroke="#A81511" stroke-width="1.5"/></svg>
+            ¿Cómo asistirás a la celebración?
+          </span>
+          <div class="opciones-radio">
+            <label class="radio-opcion">
+              <input type="radio" name="modalidad" value="Solo/a" required>
+              <span>Iré yo solo/a</span>
+            </label>
+            <label class="radio-opcion">
+              <input type="radio" name="modalidad" value="Acompañado/a" required>
+              <span>Iré en compañía</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="campo" id="campo-familia" hidden>
+          <span class="campo-titulo">
+            <svg class="icono-campo" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="3" stroke="#A81511" stroke-width="1.5"/><circle cx="17" cy="9" r="2.5" stroke="#A81511" stroke-width="1.5"/><path d="M2 21c0-3.9 2.7-7 6-7s6 3.1 6 7" stroke="#A81511" stroke-width="1.5"/><path d="M15 15c2.8 0 5 2.5 5 6" stroke="#A81511" stroke-width="1.5"/></svg>
+            ¿Quiénes te acompañarán?
+          </span>
+          <div id="lista-familia" class="lista-familia">
+            <input type="text" name="familia[]" class="input-familia" placeholder="Nombre de la persona 1">
+          </div>
+          <button type="button" id="btn-agregar-familia" class="btn-agregar-familia">+ Agregar a alguien más</button>
+        </div>
+
+        <label class="campo">
+          <span class="campo-titulo">
+            <svg class="icono-campo" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="1" stroke="#A81511" stroke-width="1.5"/><path d="M3 6l9 7 9-7" stroke="#A81511" stroke-width="1.5"/></svg>
+            Mensaje para Ivanova <span class="campo-opcional">(opcional)</span>
+          </span>
+          <textarea name="mensaje" rows="3" placeholder="Déjale un mensaje..."></textarea>
+        </label>
+
+        <button type="submit" class="btn btn-primario btn-rsvp-submit">Confirmar Asistencia ♡</button>
+      </form>
+    </section>
+
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

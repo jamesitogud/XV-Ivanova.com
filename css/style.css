@@ -1,0 +1,683 @@
+/* ===================================================== */
+/* RESET BÁSICO */
+/* ===================================================== */
+/* ===================================================== */
+/* FUENTE SCRIPT: "Alex Brush" (Google Fonts, gratis, uso
+   libre) — la alternativa más parecida a Brittany Signature
+   (que es de pago para uso comercial). No requiere descargar
+   nada, se carga sola desde Google Fonts. */
+/* ===================================================== */
+
+/* ===================================================== */
+/* FUENTE "Mrs Saint Delafield" — se carga de forma LOCAL
+   (auto-hosteada) en vez de depender de internet/Google Fonts
+   en el momento de abrir la página. Necesita que exista el
+   archivo fonts/MrsSaintDelafield-Regular.ttf */
+/* ===================================================== */
+/* ===================================================== */
+/* FUENTE "Brittany Signature" — cargada vía CDNFonts.com
+   directo desde el <link> del HTML, sin descargar ni
+   instalar ningún archivo. */
+/* ===================================================== */
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: #6B2B2E;
+}
+
+/* ===================================================== */
+/* FONDO PERGAMINO — esto es lo que ya probamos y aprobaste */
+/* ===================================================== */
+.pagina {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 759px;
+  margin: 0 auto;
+  background-color: #FDF4E5;
+
+  background-image:
+    url("../img/fondo/borde-superior.png"),
+    url("../img/fondo/borde-inferior.png");
+
+  background-repeat: no-repeat, no-repeat;
+  background-position: top center, bottom center;
+  background-size: 100% auto, 100% auto;
+
+  overflow: hidden; /* para que las esquinas no se salgan del contenedor */
+}
+
+/* ===================================================== */
+/* ESQUINAS DECORATIVAS (flores) — PNG transparente, se
+   colocan con su forma y proporción REAL, sin recorte ni
+   caja cuadrada. Solo se limita el ancho; el alto se ajusta
+   solo para respetar la proporción original de cada imagen. */
+/* ===================================================== */
+.esquina {
+  position: absolute;
+  width: 180px;      /* cambia solo esto si la quieres más grande/chica */
+  height: auto;       /* nunca fijes esto: así no se deforma */
+  max-width: none;
+  z-index: 5;
+  pointer-events: none;
+}
+/* Sin espejos automáticos: cada esquina muestra la imagen tal cual
+   la pongas en su archivo correspondiente. Si necesitas que una
+   imagen esté "al revés" respecto a otra, voltéala tú antes de
+   guardarla (en Photoshop, Canva, o cualquier editor), no lo hace
+   el código. */
+.esquina-sup-der { top: 0; right: 0; }
+.esquina-sup-izq { top: 0; left: 0; }
+.esquina-inf-der { bottom: 0; right: 0; }
+.esquina-inf-izq { bottom: 0; left: 0; }
+
+/* Clase genérica para CUALQUIER otra imagen suelta con fondo
+   transparente (adornos, separadores, íconos grandes, etc.)
+   que quieras poner "libre" encima del fondo, sin caja ni recorte. */
+.img-libre {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;   /* nunca se desborda del contenedor */
+  object-fit: contain;
+}
+
+/* ===================================================== */
+/* CONTENIDO GENERAL */
+/* ===================================================== */
+.contenido {
+  position: relative;
+  z-index: 2;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.titulo-seccion {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600; /* SemiBold */
+  color: #A81511;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.titulo-seccion::before,
+.titulo-seccion::after {
+  content: "";
+  height: 1px;
+  width: 50px;
+  background: linear-gradient(to right, transparent, #B8934A);
+}
+.titulo-seccion::after {
+  background: linear-gradient(to left, transparent, #B8934A);
+}
+
+/* ===================================================== */
+/* ENCABEZADO */
+/* ===================================================== */
+.corona {
+  width: 130px;      /* ajústalo si tu corona real se ve muy grande/chica */
+  margin: 0 auto 12px auto;
+}
+.eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500; /* Medium — es subtítulo */
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.1rem;
+  color: #A81511;
+  margin: 0 0 4px 0;
+}
+.nombre {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;   /* clave: quita la negrita por defecto del <h1> */
+  font-size: 6rem;
+  line-height: 1;
+  color: #A81511;
+  margin: 2px 0 24px 0;  /* menos solape que antes */
+  transform: translateX(-47px);  /* corrige el desbalance visual hacia la derecha */
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500; /* Medium */
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.btn-primario {
+  background: #A81511;
+  color: #FFF9F0;
+  border: 1px solid #A81511;
+}
+.btn-primario:hover,
+.btn-primario:active {
+  background: #7F0000;
+  border-color: #7F0000;
+}
+.btn-secundario {
+  background: transparent;
+  color: #A81511;
+  border: 1px solid #A81511;
+  font-size: 0.9rem;
+  padding: 10px 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.icono-btn {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.btn-secundario:hover,
+.btn-secundario:active {
+  background: #A81511;
+  color: #FFF9F0;
+}
+
+/* ===================================================== */
+/* TEXTO + FOTO PRINCIPAL */
+/* ===================================================== */
+.seccion-texto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  text-align: left;
+  margin: 60px 0 40px 0;
+}
+.texto-especial {
+  flex: 1 1 280px;
+  max-width: 260px;
+  margin: 0 auto;
+}
+.texto-especial h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600; /* SemiBold */
+  color: #A81511;
+  font-size: 1.4rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.separador-corazon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0 20px 0;
+}
+.separador-corazon .linea {
+  width: 30px;
+  height: 1px;
+  background: #B8934A;
+}
+.separador-corazon .corazon-sep {
+  color: #B8934A;
+  font-size: 0.75rem;
+}
+.corazon {
+  color: #B8934A;
+  font-size: 0.85rem;
+  text-align: center;
+  margin: 2px 0 !important;
+}
+.texto-especial p {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; /* Regular */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  margin: 8px 0;
+}
+.firma-espero {
+  color: #A81511;
+  font-family: 'Great Vibes', cursive !important;
+  font-size: 2.2rem !important;
+  font-weight: 400 !important;
+}
+.foto-principal {
+  flex: 1 1 280px;
+  width: 100%;
+  max-width: 320px;
+  object-fit: cover;
+  aspect-ratio: 2/3;  /* exactamente 4000x6000 */
+  margin: 0 auto;
+  display: block;
+}
+
+.separador-dorado {
+  display: block;
+  width: 70%;
+  max-width: 320px;
+  height: 20px;
+  margin: 20px auto;
+}
+
+/* ===================================================== */
+/* FECHA / HORA / LUGAR */
+/* ===================================================== */
+.detalles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 40px 0;
+}
+.detalle {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-align: left;
+}
+.detalle-separador {
+  display: block;
+  width: 20px;
+  height: 55px;
+  align-self: center;
+  flex-shrink: 0;
+}
+.icono {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+.detalle-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500; /* Medium — es subtítulo */
+  color: #A81511;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+.detalle-texto {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; /* Regular */
+  margin: 0;
+  font-size: 1.05rem;
+  font-variant-numeric: lining-nums;
+}
+
+.botones-accion {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+/* ===================================================== */
+/* MAPA */
+/* ===================================================== */
+.mapa-contenedor {
+  border: 1px solid #E3C99B;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+/* ===================================================== */
+/* GALERÍA */
+/* ===================================================== */
+.galeria { margin-bottom: 50px; }
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 20px;
+}
+.galeria-grid img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+.galeria-panoramica {
+  width: 100%;
+  aspect-ratio: 3/1;
+  object-fit: cover;
+  margin-top: 8px;
+}
+
+/* ===================================================== */
+/* INFO ADICIONAL */
+/* ===================================================== */
+.info-adicional { margin-bottom: 50px; }
+.info-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+.info-item {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; /* Regular */
+  text-align: center;
+  font-size: 0.9rem;
+  max-width: 120px;
+  font-variant-numeric: lining-nums;
+}
+.info-item .icono {
+  width: 32px;
+  height: 32px;
+  display: block;
+  margin: 0 auto 8px auto;
+}
+.info-separador {
+  width: 20px;
+  height: 90px;
+  flex-shrink: 0;
+  align-self: center;
+}
+.separador-punteado {
+  display: block;
+  width: 90%;
+  max-width: 500px;
+  height: 4px;
+  margin: -6px auto 0 auto;
+}
+
+/* ===================================================== */
+/* CONFIRMAR ASISTENCIA (RSVP) */
+/* ===================================================== */
+.volver-link {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: #A81511;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+.volver-link:hover {
+  text-decoration: underline;
+}
+.confirmacion {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.titulo-confirmacion {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  font-size: 2.6rem;
+  color: #A81511;
+  margin-bottom: 6px;
+}
+.separador-corto,
+.separador-ramas {
+  display: block;
+  width: 220px;
+  margin: 8px auto;
+}
+.confirmacion-texto {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: #4a3527;
+  margin: 10px 0;
+}
+.confirmacion-nota {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a3527;
+  max-width: 420px;
+  margin: 16px auto 30px auto;
+}
+.confirmacion-nota strong {
+  color: #A81511;
+}
+.icono-corazon-inline {
+  width: 18px;
+  height: 18px;
+  vertical-align: -3px;
+  margin-right: 4px;
+}
+
+.form-rsvp {
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.campo-titulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #4a3527;
+}
+.campo-opcional {
+  font-weight: 400;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+.icono-campo {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.form-rsvp input[type="text"],
+.form-rsvp select,
+.form-rsvp textarea {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #4a3527;
+  background: #FDF7EC;
+  border: 1px solid #D8B98A;
+  border-radius: 6px;
+  padding: 12px 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.form-rsvp input[type="text"]:focus,
+.form-rsvp select:focus,
+.form-rsvp textarea:focus {
+  outline: none;
+  border-color: #A81511;
+}
+.form-rsvp textarea {
+  resize: vertical;
+}
+
+.form-rsvp select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.opciones-radio {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.radio-opcion {
+  flex: 1 1 150px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #D8B98A;
+  border-radius: 6px;
+  padding: 12px 14px;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #4a3527;
+}
+.radio-opcion input[type="radio"] {
+  accent-color: #A81511;
+  width: 16px;
+  height: 16px;
+}
+
+.btn-rsvp-submit {
+  width: 100%;
+  border-radius: 30px;
+  margin-top: 8px;
+}
+.btn-rsvp-submit:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.lista-familia {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.input-familia {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #4a3527;
+  background: #FDF7EC;
+  border: 1px solid #D8B98A;
+  border-radius: 6px;
+  padding: 10px 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.input-familia:focus {
+  outline: none;
+  border-color: #A81511;
+}
+.btn-agregar-familia {
+  align-self: flex-start;
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: #A81511;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+.campo-bloqueado {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.rsvp-gracias {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  color: #A81511;
+  padding: 30px 0;
+}
+.rsvp-gracias p:first-child {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+.rsvp-gracias-sub {
+  font-size: 1rem;
+  color: #4a3527;
+}
+
+/* ===================================================== */
+/* FOOTER */
+/* ===================================================== */
+.pie {
+  border-top: 1px dashed #C99A4E;
+  padding-top: 30px;
+}
+.pie-texto {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; /* Regular */
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+}
+.qr {
+  width: 180px;
+  aspect-ratio: 1/1;  /* exactamente 1024x1024 */
+  object-fit: contain;
+  border: 2px solid #B8934A;
+  border-radius: 4px;
+  padding: 6px;
+  background: #fff;
+  margin-bottom: 20px;
+}
+.firma-final {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #A81511;
+  margin-top: 20px;
+}
+.adorno-final {
+  display: block;
+  width: 160px;
+  margin: 4px auto 0 auto;
+}
+
+/* ===================================================== */
+/* RESPONSIVE */
+/* ===================================================== */
+@media (max-width: 700px) {
+  .seccion-texto { flex-direction: column; margin: 20px 0 20px 0; }
+  .esquina { width: 130px; }
+  .encabezado { margin-bottom: 0; }
+  .corona { width: 90px; }
+  .eyebrow { font-size: 0.85rem; }
+  .titulo-seccion {
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .titulo-seccion::before,
+  .titulo-seccion::after {
+    width: 22px;
+  }
+  .info-separador { display: none; }
+  .info-item { max-width: 100px; font-size: 0.8rem; }
+
+  /* Fecha / Hora / Lugar: apiladas en columna, centradas (como
+     "Lugar"), sin las líneas separadoras */
+  .detalles {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .detalle {
+    width: 210px;
+  }
+  .detalle-separador { display: none; }
+  .detalle-texto {
+    max-width: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nombre { font-size: 4rem; transform: translateX(-24px); margin: 2px 0 20px 0; }
+  .esquina { width: 140px; }
+  .contenido { padding: 30px 20px; }
+  .galeria-grid { height: 150px; }
+  .corona { width: 75px; }
+}
