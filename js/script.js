@@ -21,12 +21,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const enFamilia = form.querySelector('input[name="modalidad"]:checked');
     if (enFamilia && enFamilia.value === 'Acompañado/a') {
       campoFamilia.hidden = false;
+      listaFamilia.querySelectorAll('.input-familia').forEach(function (input) {
+        input.disabled = false;
+      });
       listaFamilia.querySelectorAll('.input-familia')[0].required = true;
+      btnAgregar.disabled = false;
     } else {
       campoFamilia.hidden = true;
       listaFamilia.querySelectorAll('.input-familia').forEach(function (input) {
         input.required = false;
+        input.disabled = true;   // clave: así no se manda aunque quede algo escrito
+        input.value = '';
       });
+      btnAgregar.disabled = true;
     }
   }
   radiosModalidad.forEach(function (radio) {

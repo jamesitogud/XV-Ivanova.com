@@ -566,6 +566,16 @@ body {
   outline: none;
   border-color: #A81511;
 }
+.input-familia:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #EFE7D8;
+}
+.btn-agregar-familia:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: none;
+}
 .btn-agregar-familia {
   align-self: flex-start;
   margin-top: 8px;
